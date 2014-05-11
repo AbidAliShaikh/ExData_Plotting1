@@ -1,4 +1,4 @@
-#plot2
+
 
 setwd('c:/r/Git')
 library(sqldf)
@@ -10,6 +10,6 @@ data[,1] <- as.Date(data[,1],format = '%d/%m/%Y')
 date_time <- paste (as.character(Date),Time,sep=' ')
 date_time <- strptime (date_time, format='%d/%m/%Y %H:%M:%S')
 data$DateTime <- date_time
-png(filename='plot2.png')
-plot(data$DateTime, Global_active_power,type='l',ylab="Global Active Power (kilowatts)",xlab='')
-dev.off()
+plot(data$DateTime, data$Sub_metering_1 ,type='l',ylab='Energy sub metering',xlab='')
+lines(data$DateTime, data$Sub_metering_2)
+lines(data$DateTime, data$Sub_metering_3)
